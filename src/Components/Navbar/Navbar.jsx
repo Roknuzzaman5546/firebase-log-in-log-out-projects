@@ -17,6 +17,13 @@ const Navbar = () => {
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/login">Login</NavLink></li>
             <li><NavLink to="/register">Register</NavLink></li>
+            <li><NavLink to="/orders">Orders</NavLink></li>
+            {user &&
+                <>
+                    <li><NavLink to="/profile">Profile</NavLink></li>
+                    <li><NavLink to="/dashbord">Dashbord</NavLink></li>
+                </>
+            }
         </>
     return (
         <div className="navbar bg-base-100">
@@ -39,9 +46,9 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                        <p>{user.email}</p> <a className="btn" onClick={handleLogout}>Sing Out</a>
+                        <p>{user.displayName}</p> <a className="btn" onClick={handleLogout}>Sing Out</a>
                     </> :
-                    <Link to="/login"><button className="btn">Log in</button></Link>
+                        <Link to="/login"><button className="btn">Log in</button></Link>
                 }
             </div>
         </div>
